@@ -33,6 +33,20 @@ def deleteNode(head,target):
 
     return head
 
+def countNodes(head):
+    count = 0
+    while head:
+        count += 1
+        head = head.next
+    return count
+
+def updateNode(head, pos, newValue):
+    temp = head
+    for _ in range(pos-1):
+        temp = temp.next
+    temp.data = newValue
+    return head
+
 node1=Node(10)
 node2=Node(20)
 node3=Node(30)
@@ -46,11 +60,13 @@ node4.next=node5
 
 
 while True:
-    print("\nMENU")
+    print("\n=====MENU=====")
     print("1. Traverse List")
     print("2. Insert Node")
     print("3. Delete Node")
-    print("4. Exit")
+    print("4. Count Elements")
+    print("5. Update Node")
+    print("6. Exit")
 
     choice=int(input("Enter Your Choice : "))
 
@@ -76,7 +92,18 @@ while True:
         node1=deleteNode(node1,target)
         print("Node deleted......!")
         traverseAndPrint(node1)
+
     elif choice==4:
+        print("Total Nodes =", countNodes(node1))
+
+    elif choice==5:
+        pos = int(input("Enter position to update : "))
+        value = int(input("Enter new value : "))
+        node1 = updateNode(node1, pos, value)
+        print("Node Updated!")
+        traverseAndPrint(node1)
+
+    elif choice==6:
         print("Exiting......! Good Bye!")
         break
     
