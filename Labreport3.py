@@ -9,7 +9,7 @@ class Stack:
         if len(self.x) > 0:
             j=self.x.pop(0)
             print("Popped : ",j)
-            print("after popped : ",self.x)
+            print("After popped : ",*self.x)
         else:
             print("Stack is empty")
 
@@ -30,14 +30,14 @@ class Stack:
             print("Invalid Index")
             return
         self.x.insert(index, value)
-        print("Inserted element : ",self.x)
+        print("Inserted element : ",*self.x)
 
     def deleteat(self, index):
         if index < 0 or index >= len(self.x):
             print("Invalid Index.")
             return
         self.x.pop(index)
-        print("Delete element : ",self.x)
+        print("Delete element : ",*self.x)
 
     def show(self):
         if len(self.x) == 0:
